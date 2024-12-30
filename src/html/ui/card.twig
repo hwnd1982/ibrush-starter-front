@@ -1,0 +1,55 @@
+{% set props = ({
+  as: "div",
+  class: "",
+  type: "",
+  href: "",
+})|merge(props ?: {}) %}
+
+<{{ props.href ? "a" : props.as }}{{ props.href ? " href=" ~ props.href }} class="group card js-card{{ props.class ? " " ~ props.class }}">
+  {% if props.type == "search" %}
+    <div class="flex items-center justify-between gap-6 lg:gap-2">
+      <div class="flex items-center gap-6 lg:gap-2">
+        <img class="w-[11.4rem] h-auto object-cover lg:w-[5.4rem] lazy" data-src="/img/search-product.png" alt="" width="114" height="114">
+        <div>
+          <p class="text-r-l-3-u !text-[1.5rem] lg:text-r-xs lg:!text-[1.1rem]">Стол Крит-м</p>
+          <span class="block mt-1 opacity-50 text-r-m lg:text-r-xs-2">Дуб</span>
+        </div>
+      </div>
+      <div class="text-right">
+        <span class="block text-r-xl lg:text-r-m-3">44 400 ₽</span>
+        <span class="block mt-1 text-r-xs-2 opacity-30 line-through">54 400 ₽</span>
+      </div>
+    </div>
+  {% elseif props.type == "order" %}
+    <div class="flex items-center justify-between gap-6 lg:gap-2">
+      <div class="flex items-center gap-6 lg:gap-2 basis-[45%] lg:basis-[55%]">
+        <img class="w-[11.4rem] h-auto object-cover lg:w-[5.4rem] basis-[40%]" src="/img/search-product.png" alt="" width="114" height="114">
+        <div class="basis-[60%]">
+          <p class="text-r-m-2-u lg:text-r-xs">Стол Крит-м</p>
+          <span class="block mt-1 opacity-50 text-r-m lg:text-r-xs-2">1 шт.</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-between lg:block basis-[55%] lg:basis-[45%]">
+        <div class="lg:text-right text-r-m text-black/50 lg:mb-2 lg:text-r-s">Светлый дуб</div>  
+        <div class="text-right">
+          <span class="block text-r-l-2 lg:text-r-m-3">44 400 ₽</span>
+          <span class="block mt-1 text-r-xs-2 opacity-30 line-through">54 400 ₽</span>
+        </div>
+      </div>
+    </div>
+  {% elseif props.type == "basket" %}
+    <div class="flex items-center justify-between gap-6 lg:gap-2">
+      <div class="flex items-center gap-6 lg:gap-2">
+        <img class="w-[11.4rem] h-auto object-cover lg:w-[5.4rem] lazy" data-src="/img/search-product.png" alt="" width="114" height="114">
+        <div class="basis-[80%]">
+          <p class="text-r-l-3-u !text-[1.5rem] lg:text-r-xs lg:!text-[1.1rem]">Стол Крит-м</p>
+          <span class="block mt-1 opacity-50 text-r-m lg:text-r-xs-2">Дуб</span>
+        </div>
+      </div>
+      <div class="text-right">
+        <span class="block text-r-xl lg:text-r-m-3">44 400 ₽</span>
+        <span class="block mt-1 text-r-xs-2 opacity-30 line-through">54 400 ₽</span>
+      </div>
+    </div>
+  {% endif %}
+</{{ props.href ? "a" : props.as }}>

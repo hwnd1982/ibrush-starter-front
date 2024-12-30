@@ -1,0 +1,27 @@
+.tag-line {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    @extend .text-tag;
+
+    &:not(:first-child):before {
+      content: "";
+      padding-left: 0.6rem;
+      border-left: 1px solid currentColor;
+
+      @include breakpoint-down($lg) {
+        padding-left: 1rem;
+      }
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      padding-right: 0.6rem;
+
+      @include breakpoint-down($lg) {
+        padding-right: 1rem;
+      }
+    }
+  }
+}

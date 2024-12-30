@@ -1,0 +1,10 @@
+@use "./fonts";
+
+@use "../../node_modules/swiper/swiper.css";
+@use "../../node_modules/swiper/modules/navigation.css";
+@use "../../node_modules/swiper/modules/grid.css";
+@use "../../node_modules/swiper/modules/effect-fade.css";
+@use "../../node_modules/swiper/modules/scrollbar.css";
+
+@use "./base/base";
+@use "./ui/ui";

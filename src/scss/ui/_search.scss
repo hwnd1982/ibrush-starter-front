@@ -1,0 +1,33 @@
+.search {
+  @apply flex pb-3 shadow-border-bottom-px shadow-black/20;
+
+  &__field {
+    @apply text-h5 block grow bg-transparent outline-none placeholder:text-black/30;
+
+    &:not(:placeholder-shown) + .search__end {
+      .search__end-button {
+        &._clear {
+          @apply block;
+        }
+
+        &._search {
+          @apply hidden;
+        }
+      }
+    }
+  }
+
+  &__end {
+    @apply ml-6 flex gap-2;
+
+    &-button {
+      &._clear {
+        @apply hidden;
+      }
+    }
+
+    &-icon {
+      @apply w-6;
+    }
+  }
+}

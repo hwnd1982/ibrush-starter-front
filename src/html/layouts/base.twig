@@ -1,0 +1,76 @@
+{% set defaultProperties = {
+  title: "",
+  script: "",
+	auth: true,
+	search: "",
+	breadCrumbsList: [],
+	basket: {
+    products: [],
+    total: "",
+    cost: "",
+    discount: "",
+    count: "",
+  }, 
+} %}
+
+{% set properties = defaultProperties|merge(properties ?: {}) %}
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ properties.title }}</title>
+
+		<link rel="icon" sizes="76x76" href="./assets/favicon/favicon.png" type="image/png">
+		<link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="./css/main.bundle.css"/>
+	</head>
+	<body>
+		<div class="pages-wrapper wrapper{{properties.script ? ' ' ~ properties.script ~ '-page'}}">
+			{% include "../widgets/header.twig" %}
+			<main class="pages-content js-pages-content">
+				{% include "../ui/bread-crumbs.twig" with {
+					props: {
+						breadCrumbsList: properties.breadCrumbsList
+					},
+				} only %}
+
+				{% block content %}
+					{#  #}
+				{% endblock %}
+			</main>
+
+			{% include '../widgets/footer.twig' %}
+
+			<div class="notifications">
+				<div class="container">
+					<div class="notifications__inner">
+						{% block notifications %}
+							{#  #}
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+
+			<div id="modals">
+				{% include "../components/modals/custom-modal.twig" %}
+				{% block modals %}
+					{#  #}
+				{% endblock %}
+				{% include "../components/modals/custom-modal.twig" %}
+			</div>
+		</div>
+
+		<script src="./js/global.bundle.js"></script>
+		{% if properties.script %}
+			<script src="./js/{{ properties.script }}.bundle.js"></script>
+		{% endif %}
+	</body>
+</html>

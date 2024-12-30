@@ -1,0 +1,64 @@
+.thumbs-line {
+  overflow: visible;
+  padding-bottom: 4.4rem;
+
+  @include breakpoint-down($lg) {
+    padding-bottom: 2.4rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    max-width: max-content;
+
+    &:not(:first-child)::before {
+      content: "";
+      padding-left: 2.4rem;
+      // pointer-events: none;
+
+      @include breakpoint-down($lg) {
+        padding-left: 2rem;
+      }
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      border-right: 1px solid $divider;
+      padding-right: 2.4rem;
+      // pointer-events: none;
+
+      @include breakpoint-down($lg) {
+        padding-right: 2rem;
+      }
+    }
+  }
+
+  &__item {
+    padding-bottom: 1.2rem;
+    margin-bottom: -1.2rem;
+    color: $text-200;
+    cursor: pointer;
+    @extend .line-link, .hl-thumbs;
+
+    @include breakpoint-down($lg) {
+      padding-bottom: 0.4rem;
+      margin-bottom: -0.4rem;
+    }
+
+    &-hidden {
+      max-width: 0;
+    }
+
+    .swiper-slide-thumb-active & {
+      color: $black;
+
+      &::before {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &__item-hidden + &__wrapper::before {
+    content: none;
+  }
+}

@@ -1,0 +1,6 @@
+{% set props = ({
+  class: "",
+  as: "div",
+})|merge(props ?: {}) %}
+
+<{{props.as}} class="swiper-pagination slider-pagination js-slider-pagination{{ props.class ? " " ~ props.class }}"></{{props.as}}>

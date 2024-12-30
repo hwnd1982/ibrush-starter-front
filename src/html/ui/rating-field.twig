@@ -1,0 +1,39 @@
+{% set props = ({
+  id: "",
+  class: "",
+})|merge(props ?: {}) %}
+
+<div class="rating-field js-radio js-rating-field{{props.class ? " " ~ props.class : ""}}">
+
+  <input id="rating{{props.id ? "-" ~ props.id : ""}}-1" class="rating-field__input rating-field__input-1 js-radio-field" type="radio" name="rating{{props.id ? "-" ~ props.id : ""}}" value="1" data-validate="required">
+  <input id="rating{{props.id ? "-" ~ props.id : ""}}-2" class="rating-field__input rating-field__input-2 js-radio-field" type="radio" name="rating{{props.id ? "-" ~ props.id : ""}}" value="2" data-validate="required">
+  <input id="rating{{props.id ? "-" ~ props.id : ""}}-3" class="rating-field__input rating-field__input-3 js-radio-field" type="radio" name="rating{{props.id ? "-" ~ props.id : ""}}" value="3" data-validate="required">
+  <input id="rating{{props.id ? "-" ~ props.id : ""}}-4" class="rating-field__input rating-field__input-4 js-radio-field" type="radio" name="rating{{props.id ? "-" ~ props.id : ""}}" value="4" data-validate="required">
+  <input id="rating{{props.id ? "-" ~ props.id : ""}}-5" class="rating-field__input rating-field__input-5 js-radio-field" type="radio" name="rating{{props.id ? "-" ~ props.id : ""}}" value="5" data-validate="required">
+
+  <label class="rating-field__star rating-field__star-1" for="rating{{props.id ? "-" ~ props.id : ""}}-1">
+    <svg class="rating-field__star-icon" viewBox="0 0 25 25" fill="inherit" stroke="inherit" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.5 2.07959L14.8471 9.11318L14.9586 9.44733L15.3108 9.4548L22.5104 9.60763L16.7552 14.1527L16.491 14.3613L16.5849 14.6845L18.6667 21.8525L12.7934 17.5952L12.5 17.3825L12.2066 17.5952L6.33326 21.8525L8.41509 14.6845L8.50897 14.3613L8.24481 14.1527L2.48964 9.60763L9.68924 9.4548L10.0414 9.44733L10.1529 9.11318L12.5 2.07959Z" stroke="inherit" fill="inherit"/>
+    </svg>
+  </label>
+  <label class="rating-field__star rating-field__star-2" for="rating{{props.id ? "-" ~ props.id : ""}}-2">
+    <svg class="rating-field__star-icon" viewBox="0 0 25 25" fill="inherit" stroke="inherit" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.5 2.07959L14.8471 9.11318L14.9586 9.44733L15.3108 9.4548L22.5104 9.60763L16.7552 14.1527L16.491 14.3613L16.5849 14.6845L18.6667 21.8525L12.7934 17.5952L12.5 17.3825L12.2066 17.5952L6.33326 21.8525L8.41509 14.6845L8.50897 14.3613L8.24481 14.1527L2.48964 9.60763L9.68924 9.4548L10.0414 9.44733L10.1529 9.11318L12.5 2.07959Z" stroke="inherit" fill="inherit"/>
+    </svg>
+  </label>
+  <label class="rating-field__star rating-field__star-3" for="rating{{props.id ? "-" ~ props.id : ""}}-3">
+    <svg class="rating-field__star-icon" viewBox="0 0 25 25" fill="inherit" stroke="inherit" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.5 2.07959L14.8471 9.11318L14.9586 9.44733L15.3108 9.4548L22.5104 9.60763L16.7552 14.1527L16.491 14.3613L16.5849 14.6845L18.6667 21.8525L12.7934 17.5952L12.5 17.3825L12.2066 17.5952L6.33326 21.8525L8.41509 14.6845L8.50897 14.3613L8.24481 14.1527L2.48964 9.60763L9.68924 9.4548L10.0414 9.44733L10.1529 9.11318L12.5 2.07959Z" stroke="inherit" fill="inherit"/>
+    </svg>
+  </label>
+  <label class="rating-field__star rating-field__star-4" for="rating{{props.id ? "-" ~ props.id : ""}}-4">
+    <svg class="rating-field__star-icon" viewBox="0 0 25 25" fill="inherit" stroke="inherit" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.5 2.07959L14.8471 9.11318L14.9586 9.44733L15.3108 9.4548L22.5104 9.60763L16.7552 14.1527L16.491 14.3613L16.5849 14.6845L18.6667 21.8525L12.7934 17.5952L12.5 17.3825L12.2066 17.5952L6.33326 21.8525L8.41509 14.6845L8.50897 14.3613L8.24481 14.1527L2.48964 9.60763L9.68924 9.4548L10.0414 9.44733L10.1529 9.11318L12.5 2.07959Z" stroke="inherit" fill="inherit"/>
+    </svg>
+  </label>
+  <label class="rating-field__star rating-field__star-5" for="rating{{props.id ? "-" ~ props.id : ""}}-5">
+    <svg class="rating-field__star-icon" viewBox="0 0 25 25" fill="inherit" stroke="inherit" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.5 2.07959L14.8471 9.11318L14.9586 9.44733L15.3108 9.4548L22.5104 9.60763L16.7552 14.1527L16.491 14.3613L16.5849 14.6845L18.6667 21.8525L12.7934 17.5952L12.5 17.3825L12.2066 17.5952L6.33326 21.8525L8.41509 14.6845L8.50897 14.3613L8.24481 14.1527L2.48964 9.60763L9.68924 9.4548L10.0414 9.44733L10.1529 9.11318L12.5 2.07959Z" stroke="inherit" fill="inherit"/>
+    </svg>
+  </label>
+</div>

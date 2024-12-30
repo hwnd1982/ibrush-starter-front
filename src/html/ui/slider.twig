@@ -1,0 +1,22 @@
+{% set props = ({
+  class: "",
+  swiperClass: "",
+  swiperWrapperClass: "",
+
+  slides: "",
+
+	addonBefore: "",
+	addonAfter: "",
+})|merge(props ?: {}) %}
+
+<div class="slider js-slider{{ props.class ? " " ~ props.class }}">
+	{{ props.addonBefore }}
+
+	<div class="swiper{{ props.swiperClass ? " " ~ props.swiperClass }}">
+		<div class="swiper-wrapper{{ props.swiperWrapperClass ? " " ~ props.swiperWrapperClass }}">
+			{{ props.slides }}
+		</div>
+	</div>
+
+	{{ props.addonAfter }}
+</div>

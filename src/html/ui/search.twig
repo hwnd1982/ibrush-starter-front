@@ -1,0 +1,40 @@
+{% set end %}
+<button class="search__end-button _search js-search-button">
+  {% include "./icon.twig" with {
+    props: {
+      href: "search",
+      width: "24",
+      height: "24",
+      class: "search__end-icon",
+    }
+  } only %}
+</button>
+
+<button class="search__end-button _clear js-search-clear-button">
+  {% include "./icon.twig" with {
+    props: {
+      href: "close",
+      width: "24",
+      height: "24",
+      class: "search__end-icon",
+    }
+  } only %}
+</button>
+{% endset %}
+
+{% set props = ({
+  class: "",
+
+  placeholder: "Поиск",
+  end: end,
+})|merge(props ?: {}) %}
+
+<label class="search group js-search{{ props.class ? " " ~ props.class }}">
+	<input class="search__field js-search-field" type="text" placeholder="{{ props.placeholder }}">
+
+	{% if end %}
+		<div class="search__end">
+      {{ end }}
+    </div>
+  {% endif %}
+</label>

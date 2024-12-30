@@ -1,0 +1,137 @@
+.radio {
+  position: relative;
+  // display: flex;
+  // align-items: center;
+  // justify-content: flex-start;
+  // width: max-content;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  width: fit-content;
+  cursor: pointer;
+
+  &--size {
+    &--l {
+      .radio {
+        &__control {
+          width: 2.2rem;
+          height: 2.2rem;
+          padding: 0.1rem;
+
+          &::after {
+            background-size: 2.4rem 2.4rem;
+          }
+        }
+
+        &__content {
+          font-size: 1.8rem;
+
+          @include breakpoint-down($lg) {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+
+    &--ls {
+      .radio {
+        &__control {
+          width: 2.2rem;
+          height: 2.2rem;
+          padding: 0.1rem;
+
+          &::after {
+            background-size: 2.4rem 2.4rem;
+          }
+        }
+
+        &__content {
+          font-size: 1.5rem;
+
+          @include breakpoint-down($lg) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+
+    &--s {
+      .radio {
+        &__control {
+          width: 1.6rem;
+          height: 1.6rem;
+          padding: 0.4rem;
+
+          &::after {
+            background-size: 2rem 2rem;
+          }
+        }
+
+        &__content {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  &:hover .radio {
+    &__control {
+    }
+
+    &__content {
+      color: $primary-stroke;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+
+    &:checked {
+      & ~ .radio {
+        &__control::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__control {
+    position: relative;
+    display: block;
+    box-shadow: 0 0 0 1px inset #7f82894d;
+    margin-right: 1rem;
+    flex-shrink: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill='none'%3E%3Cpath d='M22.1004 12.1004C22.4665 11.7343 22.4665 11.1407 22.1004 10.7746C21.7343 10.4085 21.1407 10.4085 20.7746 10.7746L13.3125 18.2367L10.2254 15.1496C9.8593 14.7835 9.2657 14.7835 8.89959 15.1496C8.53347 15.5157 8.53347 16.1093 8.89959 16.4754L12.6496 20.2254C13.0157 20.5915 13.6093 20.5915 13.9754 20.2254L22.1004 12.1004Z' fill='%23E30613'/%3E%3C/svg%3E");
+      background-size: 2.4rem 2.4rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: $transition-duration;
+    }
+  }
+
+  &__content {
+    transition: $transition-duration;
+  }
+
+  &.is-error & {
+    &__control {
+      box-shadow: 0 0 0 1px inset $primary-active;
+    }
+  }
+}

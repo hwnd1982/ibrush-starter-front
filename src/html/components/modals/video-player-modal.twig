@@ -1,0 +1,14 @@
+{% set modalContent %}
+<div class="video-player__wrapper">
+	<div class="video-player__content js-video-content"></div>
+</div>
+{% endset %}
+
+{% include "../../ui/modal.twig" with {
+  props: {
+    id: "video-player",
+    children: modalContent,
+    class: "js-video-player",
+    windowClass: "video-player__window",
+  }
+} only %}

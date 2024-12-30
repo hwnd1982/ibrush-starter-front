@@ -1,0 +1,17 @@
+{% set props = ({
+  options: "",
+  search: false,
+  attributes: "",
+  attributesSelect: "",
+  class: "",
+  labelText: "",
+  type: "default",
+  options: [],
+})|merge(props ?: {}) %}
+
+<div class="select group js-select select-type--{{props.type}}{{props.labelText ? " select--placeholder" }}{{ props.class ? " " ~ props.class }}" {{ props.search ? "data-select-search" }} {{ props.attributes }}>
+	{% if labelText %}
+		<span class="select__placeholder">{{props.labelText}}</span>
+	{% endif %}
+	<select class="js-select-field" data-select-options="{{ props.options|json_encode()|url_encode }}" {{ props.attributesSelect }}></select>
+</div>

@@ -1,0 +1,353 @@
+.text-field {
+  position: relative;
+  // z-index: 1;
+
+  // &__label {
+  // }
+
+  // &__inner {
+  // }
+
+  &__inner {
+    position: relative;
+  }
+
+  &--type--textarea & {
+    &__inner {
+      height: 100%;
+    }
+    &__textarea {
+      height: 100%;
+    }
+  }
+
+  &--type--file & {
+    &__inner {
+      position: relative;
+      display: block;
+      width: 100%;
+      font-size: 1.6rem;
+      color: $black;
+      background-color: $trans;
+      border: none;
+      outline: none;
+      transition: 0.2s ease-in-out;
+
+      &:not(.text-field-group) {
+        outline: 7px #ececec dashed;
+        outline-offset: -7px;
+      }
+
+      @include hover() {
+        outline-color: $primary-stroke;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        background-color: $white;
+      }
+
+      &.text-field-group {
+        &::placeholder {
+          transition: $transition-duration;
+        }
+      }
+    }
+
+    &__file {
+      display: block;
+      position: relative;
+      height: 4.8rem;
+      width: 100%;
+      opacity: 0;
+      z-index: 3;
+      cursor: pointer;
+
+      &-info {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+        width: max-content;
+        max-width: calc(100% - 3.2rem);
+      }
+
+      &-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        color: #7f8289;
+        margin-right: 1rem;
+      }
+
+      &-name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &:empty::before {
+          content: "Прикрепить резюме";
+          color: #7f8289;
+        }
+      }
+    }
+  }
+
+  &__input,
+  &__textarea {
+    display: block;
+    font-family: "Onest", sans-serif;
+
+    padding: 1.6rem;
+    width: 100%;
+    font-size: 1.6rem;
+    color: $black;
+    background-color: $trans;
+    border: none;
+    outline: none;
+    transition: 0.2s ease-in-out;
+
+    &:not(.text-field-group) {
+      box-shadow: 0 0 0 1px $border inset;
+
+      &:focus-visible {
+        box-shadow: 0 0 0 1px $primary-stroke inset;
+      }
+    }
+
+    &.text-field-group {
+      &::placeholder {
+        transition: $transition-duration;
+      }
+    }
+  }
+
+  &__input {
+    height: 4.8rem;
+  }
+
+  &__textarea {
+    resize: none;
+
+    &.text-field-group {
+      min-height: 15rem;
+    }
+
+    .career-modal & {
+      min-height: 16.2rem;
+    }
+  }
+
+  // &__endContent {
+  // }
+
+  &__errors {
+    color: $primary-stroke;
+    // display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: $transition-duration;
+    @extend .text-s;
+
+    .text-field.is-open &,
+    .text-field.is-target & {
+      display: none;
+    }
+  }
+
+  &__error {
+    margin: 0;
+    padding-top: 0.8rem;
+  }
+
+  &__options {
+    position: absolute !important;
+    bottom: -0.6rem;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 0 1px $border inset;
+    transform: translate(0, 100%);
+    background-color: $white;
+    z-index: 5;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: $transition-duration;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      padding-top: 0.5rem;
+    }
+
+    .is-open & {
+      max-height: 17rem;
+      pointer-events: all;
+    }
+
+    &-wrapper {
+      max-height: 17rem;
+      overflow: hidden;
+    }
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem;
+    margin: 0 1px;
+    font-size: 1.6rem;
+    color: #7f8289;
+
+    @include hover {
+      color: $black;
+    }
+
+    &.is-selected {
+      pointer-events: none;
+      color: $black;
+      background-color: #f8f8f8;
+    }
+  }
+
+  &__arrow {
+    fill: none;
+    position: absolute;
+    right: 1.6rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 2.4rem;
+    height: 2.4rem;
+    transition: $transition-duration;
+    z-index: -1;
+
+    .is-open & {
+      transform: translate(0, -50%) scale(1, -1);
+    }
+
+    .career-modal & {
+      color: $primary-stroke;
+    }
+  }
+
+  &--type {
+    &--select {
+      // z-index: 5;
+    }
+  }
+}
+
+.text-field.is-error {
+  .text-field {
+    &__input,
+    &__textarea {
+      &.text-field-group {
+        color: $primary-active;
+
+        &::placeholder {
+          color: $primary-active;
+        }
+      }
+    }
+
+    &__errors {
+      // display: block;
+      max-height: 2.4rem;
+    }
+
+    &__error {
+      &._required {
+        display: none;
+      }
+    }
+  }
+}
+
+.text-field.is-error.is-error-required {
+  .text-field {
+    &__error {
+      display: none;
+
+      &._required {
+        display: block;
+      }
+    }
+  }
+}
+
+.text-field.is-disabled {
+  opacity: 0.3;
+
+  // .text-field {
+  //   &__input {
+  //   }
+  // }
+
+  &.is-error {
+    .text-field {
+      &__errors {
+        display: none;
+      }
+    }
+  }
+}
+
+// .text-field-type {
+//   &--select {
+//     .text-field {
+//       &__inner {
+//       }
+//     }
+//   }
+// }
+
+.text-field {
+  .select {
+    // &__root {
+    // }
+
+    // &__inner {
+    //   .select__item {
+    //   }
+    // }
+
+    // &__item {
+    // }
+
+    &__list {
+      &--dropdown {
+        .select {
+          // &__item {
+          //   &.is-selected {
+          //   }
+          // }
+
+          &__list {
+            scrollbar-width: thin;
+            scrollbar-color: #cfd5dd #fff0;
+
+            // & ::-webkit-scrollbar {
+            // }
+
+            // & ::-webkit-scrollbar-thumb {
+            // }
+          }
+        }
+      }
+    }
+  }
+}

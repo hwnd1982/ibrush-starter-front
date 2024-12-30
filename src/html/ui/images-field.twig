@@ -1,0 +1,16 @@
+{% set props = ({
+  id: "",
+  class: "",
+})|merge(props ?: {}) %}
+
+<div class="images-field js-images-field is-empty{{props.class ? " " ~ props.class : ""}}">
+  <div class="images-field__items js-images-items custom-scroll lg:overflow-x-auto"></div>
+  <label class="images-field__item-add button button-size--m button-type--outlined">
+    <span class="images-field__item-add-text">добавить фото</span>
+    <input multiple type="file" class="images-field__item-input js-images-field-input" name="photos{{props.id ? "-" ~ props.id : ""}}" id="review-photos{{props.id ? "-" ~ props.id : ""}}" accept=".jpg, .jpeg, .png">
+      {% include "./icon.twig" with {
+        props: {
+          href: "plus",
+      }} only %}
+  </label>
+</div>

@@ -1,0 +1,58 @@
+.droplist {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: inherit;
+  }
+
+  &__arrow {
+    fill: none;
+    transition: $transition-duration;
+
+    .is-open & {
+      transform: scale(1, -1);
+    }
+  }
+
+  &:not([data-enable="desktop"]) & {
+    &__trigger {
+      display: none;
+
+      @include breakpoint-down($lg) {
+        display: block;
+        flex-shrink: 0;
+        color: #BCBCBC;
+        --size: 1.6rem; 
+        border:none;
+        background:none;
+        padding:0;
+        width:var(--size);
+        height:var(--size);
+        
+        svg{
+          width:100%;
+          height:100%;
+        }
+      }
+    }
+
+    &__content {
+      padding-top: 1.6rem;
+      
+      @include breakpoint-down($lg) {
+        max-height: 0;
+        padding-top: 0;
+        overflow: hidden;
+        transition: $transition-duration;
+      }
+    }
+  }
+
+  &:not([data-enable="desktop"]).is-open & {
+    &__content {
+      max-height: 50rem;
+      padding-top: 1.6rem;
+    }
+  }
+}

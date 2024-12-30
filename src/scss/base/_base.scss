@@ -1,0 +1,115 @@
+@use "../vars" as *;
+@use "../mixins" as * with (
+  $hover-transition: $transition,
+  $hover-screen: $lg
+);
+
+html {
+  font-size: max(7.5px, min(12px, calc(100vw / 1600 * 10)));
+
+  @include breakpoint-down($xxl) {
+    font-size: max(8.5px, min(12px, calc(100vw / 1280 * 10)));
+  }
+
+  @include breakpoint-down($xl) {
+    font-size: max(8.5px, min(12px, calc(100vw / 1024 * 10)));
+  }
+
+  @include breakpoint-down($md) {
+    font-size: max(8.5px, min(12px, calc(100vw / 360 * 10)));
+  }
+}
+
+body {
+  font-family: $font-golos;
+  margin: 0;
+  font-weight: 400;
+  background-color: $bg;
+  color: $dark;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+input,
+button,
+select {
+  font-family: $font-golos;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $mainblue;
+
+  @include hover {
+    color: $bluehover;
+  }
+}
+
+img[data-src] {
+  display: block;
+  opacity: 0;
+  transition: $transition-duration;
+
+  &[data-ll-status="loaded"] {
+    opacity: 1;
+  }
+}
+
+.container {
+  --container-padding: 3.2rem;
+  max-width: 146.4rem;
+  padding-right: var(--container-padding);
+  padding-left: var(--container-padding);
+  width: 100%;
+  margin: 0 auto;
+
+  @include breakpoint-down($xxl) {
+    max-width: 120rem;
+  }
+
+  @include breakpoint-down($xl) {
+    max-width: 96rem;
+  }
+
+  @include breakpoint-down($lg) {
+    --container-padding: 1.6rem;
+  }
+
+  @include breakpoint-down($md) {
+  }
+}
+
+.pages-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.pages-content {
+  flex-grow: 1;
+  padding-top: var(--header-height, 0px);
+}
+
+.swiper:not(.swiper-initialized) {
+  opacity: 0;
+  transition: $transition;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  transition: all 0s ease-in-out 100000000000000000000000000s;
+}

@@ -1,0 +1,43 @@
+.datepicker {
+  position: relative;
+  min-height: 6.4rem;
+
+  &__icon {
+    width: 2.4rem;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: 2.4rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+    stroke: $c-gray-200;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    fill: none;
+  }
+
+  .datepicker__input[type="text"] {
+    display: block;
+    width: 100%;
+    outline: none;
+    height: 100%;
+    font-size: 2rem;
+    color: $c-gray-200;
+    padding-right: 2.4rem;
+    padding-left: 5.8rem;
+    background-color: #fff;
+    border: 1px solid rgba(127, 130, 137, 0.3019607843);
+
+    &::placeholder {
+      color: $c-gray-200;
+    }
+  }
+  &:hover {
+    .datepicker__icon {
+      stroke: $c-red;
+    }
+    .datepicker__input[type="text"] {
+      color: $c-red;
+    }
+  }
+}

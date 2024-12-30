@@ -1,0 +1,40 @@
+$hover-transition: 0.3s ease-in-out !default;
+$hover-screen: 1024px !default;
+
+@mixin center($position: "both") {
+  position: absolute;
+
+  @if $position== "vertical" {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $position== "horizontal" {
+    left: 50%;
+    transform: translate(-50%);
+  } @else if $position== "both" {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin breakpoint-down($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($width) {
+  @media only screen and (min-width: ($width + 0.5)) {
+    @content;
+  }
+}
+
+@mixin hover($width: $hover-screen) {
+  @media (hover: hover) and (min-width: ($width + 0.5)) {
+    transition: $hover-transition;
+
+    &:hover {
+      @content;
+    }
+  }
+}

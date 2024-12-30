@@ -1,0 +1,11 @@
+.link-under {
+  padding-bottom: 3px;
+  background-image: linear-gradient(120deg, #e30613 0%, #e30613 100%);
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0;
+
+  @include hover {
+    background-size: 100% 3px;
+  }
+}

@@ -1,0 +1,26 @@
+{% set buttonPrevProps = ({
+    icon: "chevron_left",
+})|merge(props.buttonPrevProps ?: {}) %}
+
+{% set buttonNextProps = ({
+    icon: "chevron_right",
+})|merge(props.buttonNextProps ?: {}) %}
+
+{% set props = ({
+  class: "",
+  as: "div",
+})|merge(props ?: {}) %}
+
+
+<div class="slider-navigation js-slider-navigation{{ props.class ? " " ~ props.class }}">
+  {% include "./button.twig" with {
+    props: buttonPrevProps|merge({
+      class: "js-slider-navigation-prev" ~ (buttonPrevProps.class ? " " ~ buttonPrevProps.class) 
+    })
+  }  %}
+  {% include "./button.twig" with {
+    props: buttonNextProps|merge({
+      class: "js-slider-navigation-next" ~ (buttonNextProps.class ? " " ~ buttonNextProps.class) 
+    })
+  } only %}
+</div>

@@ -1,0 +1,103 @@
+.dropdown {
+  position: relative;
+  @extend .text-dropdown;
+
+  &__title {
+    position: relative;
+    padding: 0.4rem 2.2rem 0.4rem 0;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #e30613;
+      -webkit-transition: width 0.2s ease-in-out;
+      transition: width 0.2s ease-in-out;
+    }
+
+    @include hover {
+      color: $text-200;
+
+      &:before {
+        width: 100%;
+        left: 0;
+      }
+    }
+
+    .is-active &:before {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    color: currentColor;
+    transform: translateY(-50%);
+    transform-origin: 50% 50%;
+    transition: $transition-duration;
+    fill: none;
+
+    .is-active & {
+      transform: translateY(-50%) scale(1, -1);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 5;
+    min-width: 20rem;
+    width: max-content;
+    background: #ffffff;
+    box-shadow: 0 0 0.8rem 0 rgba(0, 0, 0, 0.3);
+    // opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: $transition-duration;
+    pointer-events: none;
+  }
+
+  .header-top &.is-active &__content {
+    // opacity: 1;
+    max-height: 10rem;
+    pointer-events: all;
+  }
+
+  .header-nav &.is-active &__content {
+    // opacity: 1;
+    max-height: 25rem;
+    pointer-events: all;
+  }
+
+  @include breakpoint-up($lg) {
+    .header.is-scrolling &.is-active &__content {
+      max-height: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__content-inner {
+    padding: 1.2rem;
+    display: grid;
+    gap: 1rem;
+
+    & > a {
+      justify-self: start;
+      font-size: 1.4rem;
+      line-height: 1;
+
+      @include hover {
+        color: #e30613;
+      }
+    }
+  }
+}

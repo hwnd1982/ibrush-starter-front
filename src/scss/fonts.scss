@@ -1,0 +1,48 @@
+@font-face {
+	font-family: 'GolosText';
+	src: local("GolosText"), url("@fonts/GolosText/GolosText-Black.woff2") format("woff2"), url("@fonts/GolosText/GolosText-Black.woff") format("woff");
+	font-weight: 900;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GolosText';
+	src: local("GolosText"), url("@fonts/GolosText/GolosText-Bold.woff2") format("woff2"), url("@fonts/GolosText/GolosText-Bold.woff") format("woff");
+	font-weight: 700;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GolosText';
+	src: local("GolosText"), url("@fonts/GolosText/GolosText-ExtraBold.woff2") format("woff2"), url("@fonts/GolosText/GolosText-ExtraBold.woff") format("woff");
+	font-weight: 800;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GolosText';
+	src: local("GolosText"), url("@fonts/GolosText/GolosText-Medium.woff2") format("woff2"), url("@fonts/GolosText/GolosText-Medium.woff") format("woff");
+	font-weight: 500;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GolosText';
+	src: local("GolosText"), url("@fonts/GolosText/GolosText-Regular.woff2") format("woff2"), url("@fonts/GolosText/GolosText-Regular.woff") format("woff");
+	font-weight: normal;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GolosText';
+	src: local("GolosText"), url("@fonts/GolosText/GolosText-SemiBold.woff2") format("woff2"), url("@fonts/GolosText/GolosText-SemiBold.woff") format("woff");
+	font-weight: 600;
+	font-display: swap;
+	font-style: normal;
+}
+

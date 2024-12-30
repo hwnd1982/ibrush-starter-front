@@ -1,0 +1,11 @@
+{% set props = ({
+  class: "",
+  fieldClass: "",
+
+  start: "",
+})|merge(props ?: {}) %}
+
+<div class="input-number group js-input-number{{ props.class ? " " ~ props.class }}">
+  {{ props.start }}
+  <input class="input-number__field js-input-number-field{{ props.fieldClass ? " " ~ props.fieldClass }}" type="text">
+</div>

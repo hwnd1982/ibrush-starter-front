@@ -1,0 +1,13 @@
+{% set props = ({
+  class: "",
+
+  name: "",
+  value: "",
+  children: "",
+})|merge(props ?: {}) %}
+
+<label class="checkbox js-checkbox group{{ props.class ? " " ~ props.class }}">
+  <input class="checkbox__input" name="{{ props.name }}" value="{{ props.value }}" type="checkbox">
+  <span class="checkbox__control"></span>
+  <div class="checkbox__content">{{ props.children }}</div>
+</label>

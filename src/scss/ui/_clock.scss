@@ -1,0 +1,112 @@
+.clock {
+  display: flex;
+  min-height: 6.4rem;
+  position: relative;
+  border: 1px solid rgba($color: $c-gray-100, $alpha: 0.3);
+  cursor: pointer;
+
+  & select {
+    width: 100%;
+    border: none;
+    font-size: 2rem;
+    color: #1d1e25;
+    padding-right: 2.4rem;
+    padding-left: 5.8rem;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 2.4rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: none;
+    width: 2.4rem;
+    aspect-ratio: 1;
+    stroke: $c-gray-200;
+    fill: none;
+  }
+
+  .choices {
+    position: absolute;
+    inset: 0;
+    &__inner {
+      background-color: $c-second;
+      height: 100%;
+    }
+    input {
+      display: none;
+    }
+    &__list {
+      &--single {
+        position: absolute;
+        top: 50%;
+        left: 5.8rem;
+        transform: translateY(-50%);
+      }
+      .choices__list {
+        display: none;
+      }
+    }
+    &__item {
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+    }
+    &.is-open {
+      .choices__list {
+        .choices__list {
+          padding: 2.4rem;
+          max-height: 22.8rem;
+          overflow: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          position: absolute;
+          bottom: calc(100% + 1rem);
+          left: 0;
+          width: 100%;
+          background-color: $c-second;
+          box-shadow: 0 0 5px 0 rgba(19, 29, 67, 0.15);
+          z-index: 1;
+          .choices__item {
+            cursor: pointer;
+            &:not(:hover) {
+              &.is-highlighted {
+                color: $c-red;
+              }
+            }
+          }
+          &:hover {
+            .choices__item {
+              &:not(.choices__item:hover) {
+                color: $c-gray-100;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.is-flipped {
+      .choices__list {
+        .choices__list {
+          top: initial;
+          bottom: calc(100% + 1rem);
+        }
+      }
+    }
+  }
+  * {
+    outline: none;
+  }
+  &:hover {
+    .clock__icon {
+      stroke: $c-red;
+    }
+    .choices__list--single {
+      .choices__item {
+        color: $c-red;
+      }
+    }
+  }
+}

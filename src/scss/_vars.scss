@@ -1,0 +1,39 @@
+$mainblue: #004ec2ff;
+$mainred: #d60d2bff;
+$dark: #21272dff;
+$white: #ffffffff;
+$surface: #eff3f4ff;
+$stroke: #e6eaeeff;
+$additional-dark: #717c86ff;
+$additional-light: #8c989eff;
+$bg: #f9fbfcff;
+$icons: #95a2b0ff;
+$positive: #00c164ff;
+$bluehover: #0043a8ff;
+
+$xxl: 1440px;
+$xl: 1200px;
+$lg: 1024px;
+$md: 992px;
+$sm: 767px;
+$xsm: 576px;
+$xxsm: 390px;
+
+$transition-duration: 0.3s;
+$transition: 0.3s ease-in-out;
+
+$font-golos: "GolosText", sans-serif;
+
+%button-reset {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

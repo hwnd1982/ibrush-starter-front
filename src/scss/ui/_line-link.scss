@@ -1,0 +1,31 @@
+.line-link {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #e30613;
+    transition: width 0.2s ease-in-out;
+  }
+
+  @include hover {
+    color: $text-200;
+
+    &:before {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &:focus {
+    &:before {
+      right: 0;
+      left: auto;
+      width: 0;
+    }
+  }
+}

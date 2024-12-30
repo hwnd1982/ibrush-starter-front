@@ -1,0 +1,23 @@
+{% set props = ({
+	breadCrumbsList: [
+		{
+			href: "/",
+			text: "Главная",
+		},
+	]
+})|merge(props ?: []) %}
+
+
+{% if props.breadCrumbsList|length > 1 %}
+	<div class="bread-crumbs">
+		<div class="container bread-crumbs__container">
+			<ul class="bread-crumbs__list">
+				{% for item in props.breadCrumbsList %}
+					<li class="bread-crumbs__item">
+						<a class="bread-crumbs__link" href="{{item.href}}">{{item.text}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endif %}

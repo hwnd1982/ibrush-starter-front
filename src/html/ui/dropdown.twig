@@ -1,0 +1,17 @@
+{% set props = ({
+  class: "",
+  contentClass: "",
+  modalClass: "",
+
+  position: "b",
+
+  content: "",
+  modal: "",
+
+  fixed: false,
+})|merge(props ?: {}) %}
+
+<div class="dropdown group js-dropdown{{ props.class ? " " ~ props.class }}" data-dropdown-position="{{ props.position }}"{{ props.fixed ? " data-dropdown-fixed" }}>
+	<div class="dropdown__content js-dropdown-content{{ props.contentClass ? " " ~ props.contentClass }}">{{ props.content }}</div>
+	<div class="dropdown__modal js-dropdown-modal{{ props.modalClass ? " " ~ props.modalClass }}">{{ props.modal }}</div>
+</div>

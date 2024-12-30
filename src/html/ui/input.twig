@@ -1,0 +1,21 @@
+{% set props = ({
+  label: "",
+  type: "text",
+  rows: 0,
+  required: false,
+  placeholder: "",
+  name: "",
+  class: "",
+})|merge(props ?: {}) %}
+
+<label class="group input relative block w-full{{ props.class ? " " ~ props.class }}">
+  {% if props.label %}
+    <span class="text-r-m-2-u text-black/50 mb-2">{{props.label}}</span>
+  {% endif %}
+  {% if rows %}
+    <textarea class="text-r-l-2 text-inherit py-2.5 px-4 block w-full placeholder:text-white/30 bg-transparent" rows={{props.rows}} {{props.required}} name="{{props.name}}" placeholder="{{props.placeholder}}"></textarea>
+  {% else %}
+    <input type="{{propstype}}" class="text-r-l-2 text-inherit py-2.5 px-4 border border-white/20 block bg-transparent w-full placeholder:text-white/30" name="{{props.name}}" {{props.required}} placeholder="{{props.placeholder}}">
+  {% endif %}
+  <span class="absolute -bottom-2 -translate-y-full text-r-m-2-u text-red js-input-message"></span>
+</label>

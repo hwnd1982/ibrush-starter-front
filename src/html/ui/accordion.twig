@@ -1,0 +1,34 @@
+{% set triggerProps = ({
+  href: "arrow_down_solid",
+  class: "",
+  width: "7",
+  height: "4",
+})|merge(props.triggerProps ?: {}) %}
+
+{% set props = ({
+  as: "article",
+
+	isActive: false,
+
+  content: "",
+  trigger: "",
+  type: "default",
+})|merge(props ?: {}) %}
+
+<{{props.as}} class="accordion group js-accordion accordion--{{ props.type }}{{ props.class ? " " ~ props.class }}{{ props.isActive ? " is-active" }}">
+	<div class="accordion__trigger js-accordion-trigger">
+		<div class="accordion__trigger-inner">
+			{{ props.trigger }}
+			<div class="accordion__trigger-icon">
+				{% include "./icon.twig" with {
+          props: triggerProps,
+        } only %}
+			</div>
+		</div>
+	</div>
+	<div class="accordion__content js-accordion-content">
+		<div class="accordion__content-inner">
+			{{ props.content }}
+		</div>
+	</div>
+</{{props.as}}>

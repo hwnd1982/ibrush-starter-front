@@ -1,0 +1,35 @@
+.watch-now {
+  display: flex;
+  gap: 1rem;
+  @include breakpoint-down($xsm) {
+    //max-width: 242px;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0;
+    line-height: 1.3;
+
+    &:last-child {
+      gap: 0.4rem;
+      flex-shrink: 0;
+      &::before {
+        content: "";
+        width: 2rem;
+        aspect-ratio: 1;
+        display: block;
+        background-image: url("../img/profile.svg");
+        background-position: center;
+
+        @include breakpoint-down($xsm) {
+          width: 1.8rem;
+          background-size: 100%;
+        }
+      }
+    }
+  }
+}

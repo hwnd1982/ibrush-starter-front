@@ -1,0 +1,25 @@
+{% set props = ({
+  id: "",
+  class: "",
+  wrapperClass: "",
+  windowClass: "",
+  closeClass: "",
+  bodyClass: "",
+  children: "",
+})|merge(props ?: {}) %}
+
+<div class="modal group js-modal{{ props.class ? " " ~ props.class }}" aria-hidden="true" data-modal-id="{{ props.id }}">
+	<div class="modal__wrapper js-modal-wrapper{{ props.wrapperClass ? " " ~ props.wrapperClass }}">
+		<div class="modal__window js-modal-window{{ props.windowClass ? " " ~ props.windowClass }}">
+			{% include './button.twig' with {
+        props: {
+          icon: "close",
+          class: "modal__close js-modal-close" ~ (props.closeClass ? " " ~ props.closeClass),
+        }
+      } only %}
+			<div class="modal__body{{ props.bodyClass ? " " ~ props.bodyClass }}">
+				{{ props.children }}
+			</div>
+		</div>
+	</div>
+</div>
